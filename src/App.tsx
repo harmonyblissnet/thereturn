@@ -291,10 +291,10 @@ function FunnelScreen({ onBack }: { onBack: () => void }) {
         <p className="funnel-card-title">Ready to come home to yourself?</p>
         <p className="funnel-card-body"><em>I Was There, But Not Really</em> — a gentle guide for women who feel present but far away.</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%" }}>
-          <a href="https://www.amazon.com/dp/YOUR_ASIN_HERE" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
+          <a href="https://www.amazon.com/dp/B0GWX2CQ8G" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
             <button className="btn-primary" style={{ width: "100%" }}>Get the book on Amazon</button>
           </a>
-          <a href="https://naomietnel.gumroad.com/l/YOUR_GUMROAD_ID" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
+          <a href="https://harmonyblissnest.gumroad.com/l/ucufv" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
             <button className="btn-ghost" style={{ width: "100%" }}>Download the ebook</button>
           </a>
         </div>
