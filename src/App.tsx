@@ -171,7 +171,7 @@ const mailerLiteHTML = `
 `;
 
 function MailerLiteForm() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (ref.current) {
       ref.current.innerHTML = mailerLiteHTML;
@@ -194,7 +194,7 @@ function MailerLiteForm() {
   return <div ref={ref} />;
 }
 
-function BreathingCircle({ onComplete }) {
+function BreathingCircle({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState("inhale");
   const [count, setCount] = useState(4);
   const phaseRef = useRef("inhale");
@@ -239,7 +239,7 @@ function BreathingCircle({ onComplete }) {
   );
 }
 
-function FinalActions({ onHome, onDeeper }) {
+function FinalActions({ onHome, onDeeper }: { onHome: () => void; onDeeper: () => void }) {
   return (
     <div className="final-actions">
       <button className="btn-deeper" onClick={onDeeper}>Want to go a little deeper?</button>
@@ -248,7 +248,7 @@ function FinalActions({ onHome, onDeeper }) {
   );
 }
 
-function FunnelScreen({ onBack }) {
+function FunnelScreen({ onBack }: { onBack: () => void }) {
   return (
     <div className="funnel">
       <div style={{ textAlign: "center" }}>
@@ -306,7 +306,7 @@ function FunnelScreen({ onBack }) {
   );
 }
 
-function NoSpaceFlow({ onBack, onDeeper }) {
+function NoSpaceFlow({ onBack, onDeeper }: { onBack: () => void; onDeeper: () => void }) {
   const [step, setStep] = useState(0);
   const actions = [
     { icon: "☕", text: "Make something for yourself" },
@@ -352,7 +352,7 @@ function NoSpaceFlow({ onBack, onDeeper }) {
   );
 }
 
-function HeadFullFlow({ onBack, onDeeper }) {
+function HeadFullFlow({ onBack, onDeeper }: { onBack: () => void; onDeeper: () => void }) {
   const [step, setStep] = useState(0);
   const [text, setText] = useState("");
 
@@ -390,7 +390,7 @@ function HeadFullFlow({ onBack, onDeeper }) {
   );
 }
 
-function EndOfDayFlow({ onBack, onDeeper }) {
+function EndOfDayFlow({ onBack, onDeeper }: { onBack: () => void; onDeeper: () => void }) {
   const [step, setStep] = useState(0);
   const [gratitude, setGratitude] = useState("");
   const [thought, setThought] = useState("");
@@ -429,7 +429,7 @@ function EndOfDayFlow({ onBack, onDeeper }) {
   );
 }
 
-function JustBreatheFlow({ onBack, onDeeper }) {
+function JustBreatheFlow({ onBack, onDeeper }: { onBack: () => void; onDeeper: () => void }) {
   const [step, setStep] = useState(0);
 
   return (
