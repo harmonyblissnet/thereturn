@@ -257,8 +257,8 @@ function FunnelScreen({ onBack }: { onBack: () => void }) {
       </div>
 
       <div className="funnel-card">
-        <p className="funnel-card-title">A gentle reset, delivered to you.</p>
-        <p className="funnel-card-body">A free 5-day reflection series for women who feel overwhelmed or disconnected from themselves. One short, gentle reflection each day.</p>
+        <p className="funnel-card-title">Want to keep coming back to yourself?</p>
+        <p className="funnel-card-body">Five short reflections, delivered to your inbox. 2 minutes a day. No pressure, no programs — just a quiet moment that's yours.</p>
         <MailerLiteForm />
       </div>
 
