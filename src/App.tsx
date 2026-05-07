@@ -456,7 +456,7 @@ const modes = [
 ];
 
 export default function App() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<string | null>(null);
 
   const goHome = () => setSelected(null);
   const goDeeper = () => setSelected("funnel");
