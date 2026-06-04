@@ -745,7 +745,7 @@ function SiteFooter({ onPrivacy }: { onPrivacy: () => void }) {
     <footer className="footer">
       <p className="footer-wordmark">The Return · Naomi Etnel</p>
       <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-        <p className="footer-copy">© 2025 · All rights reserved</p>
+        <p className="footer-copy">© 2026 · All rights reserved</p>
         <button onClick={onPrivacy} className="footer-policy">Privacy Policy</button>
       </div>
     </footer>
@@ -765,7 +765,7 @@ function PrivacyPolicy({ onClose }: { onClose: () => void }) {
         <div>
           <p className="s-eyebrow" style={{ textAlign: "left" }}>Legal</p>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 300, color: palette.textDark, lineHeight: 1.2, marginTop: 8 }}>Privacy Policy</h1>
-          <p style={{ fontSize: 12, color: palette.textLight, marginTop: 8, letterSpacing: "0.04em" }}>Last updated: June 2025</p>
+          <p style={{ fontSize: 12, color: palette.textLight, marginTop: 8, letterSpacing: "0.04em" }}>Last updated: June 2026</p>
         </div>
 
         {[
