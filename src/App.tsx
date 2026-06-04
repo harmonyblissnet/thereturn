@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import heroImg from "./assets/hero.png";
+import naomiImg from "./assets/naomi.jpg";
+import logoImg from "./assets/logo.png";
 
 const palette = {
   bg: "#EDE6DC",
@@ -32,11 +33,8 @@ const css = `
     background: ${palette.bg}E8; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid ${palette.border}55;
   }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300;
-    font-style: italic; color: ${palette.textDark}; letter-spacing: 0.04em;
-    cursor: pointer; background: none; border: none;
-  }
+  .nav-logo { cursor: pointer; background: none; border: none; padding: 0; line-height: 0; }
+  .nav-logo img { height: 36px; mix-blend-mode: multiply; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-link {
     font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
@@ -58,74 +56,30 @@ const css = `
     align-items: center; justify-content: center;
     padding: 120px 24px 100px; text-align: center; position: relative;
   }
-  .hero-eyebrow {
-    font-size: 10px; font-weight: 400; letter-spacing: 0.36em; text-transform: uppercase;
-    color: ${palette.accent}; margin-bottom: 36px;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 7vw, 80px);
-    font-weight: 300; color: ${palette.textDark}; line-height: 1.15;
-    max-width: 820px; margin-bottom: 32px;
-  }
+  .hero-eyebrow { font-size: 10px; font-weight: 400; letter-spacing: 0.36em; text-transform: uppercase; color: ${palette.accent}; margin-bottom: 36px; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 7vw, 80px); font-weight: 300; color: ${palette.textDark}; line-height: 1.15; max-width: 820px; margin-bottom: 32px; }
   .hero-title em { font-style: italic; color: ${palette.accent}; }
-  .hero-divider {
-    width: 40px; height: 1px; margin: 0 auto 32px;
-    background: linear-gradient(90deg, transparent, ${palette.accentLight}, transparent);
-  }
-  .hero-sub {
-    font-size: 16px; font-weight: 300; color: ${palette.textMid};
-    line-height: 1.9; max-width: 480px; margin: 0 auto 48px;
-  }
+  .hero-divider { width: 40px; height: 1px; margin: 0 auto 32px; background: linear-gradient(90deg, transparent, ${palette.accentLight}, transparent); }
+  .hero-sub { font-size: 16px; font-weight: 300; color: ${palette.textMid}; line-height: 1.9; max-width: 480px; margin: 0 auto 48px; }
   .hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .hero-note { font-size: 11px; color: ${palette.textLight}; font-style: italic; font-family: 'Cormorant Garamond', serif; }
-  .hero-scroll {
-    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    cursor: pointer; border: none; background: none;
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: ${palette.accentSoft}; font-family: 'Jost', sans-serif; transition: color 0.2s;
-  }
+  .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; border: none; background: none; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: ${palette.accentSoft}; font-family: 'Jost', sans-serif; transition: color 0.2s; }
   .hero-scroll:hover { color: ${palette.accent}; }
   .scroll-line { width: 1px; height: 36px; background: linear-gradient(180deg, ${palette.accentSoft}, transparent); }
 
   .s-wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 100px 48px; }
-  .s-eyebrow {
-    font-size: 10px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase;
-    color: ${palette.accent}; text-align: center; margin-bottom: 20px;
-  }
-  .s-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300; color: ${palette.textDark}; line-height: 1.25; text-align: center;
-  }
-  .s-divider {
-    width: 40px; height: 1px; margin: 36px auto;
-    background: linear-gradient(90deg, transparent, ${palette.accentLight}, transparent);
-  }
+  .s-eyebrow { font-size: 10px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: ${palette.accent}; text-align: center; margin-bottom: 20px; }
+  .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: ${palette.textDark}; line-height: 1.25; text-align: center; }
+  .s-divider { width: 40px; height: 1px; margin: 36px auto; background: linear-gradient(90deg, transparent, ${palette.accentLight}, transparent); }
 
-  .qm-band {
-    background: ${palette.bgCard};
-    border-top: 1px solid ${palette.border}; border-bottom: 1px solid ${palette.border};
-    padding: 80px 24px; display: flex; flex-direction: column; align-items: center;
-  }
+  .qm-band { background: ${palette.bgCard}; border-top: 1px solid ${palette.border}; border-bottom: 1px solid ${palette.border}; padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
   .qm-inner { width: 100%; max-width: 960px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .qm-sub {
-    font-size: 15px; font-weight: 300; color: ${palette.textMid};
-    line-height: 1.85; max-width: 460px; text-align: center; margin-bottom: 32px;
-  }
+  .qm-sub { font-size: 15px; font-weight: 300; color: ${palette.textMid}; line-height: 1.85; max-width: 460px; text-align: center; margin-bottom: 32px; }
 
-  .fw-body {
-    font-size: 17px; font-weight: 300; color: ${palette.textMid};
-    line-height: 1.95; max-width: 600px; margin: 0 auto 60px; text-align: center;
-  }
+  .fw-body { font-size: 17px; font-weight: 300; color: ${palette.textMid}; line-height: 1.95; max-width: 600px; margin: 0 auto 60px; text-align: center; }
   .fw-body em { font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 19px; }
   .pillars { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-  .pillar {
-    background: ${palette.bgCard}; border: 1px solid ${palette.border}; border-radius: 20px;
-    padding: 36px 28px; flex: 1; min-width: 200px; max-width: 260px;
-    text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;
-  }
+  .pillar { background: ${palette.bgCard}; border: 1px solid ${palette.border}; border-radius: 20px; padding: 36px 28px; flex: 1; min-width: 200px; max-width: 260px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .pillar-icon { font-size: 20px; color: ${palette.accent}; margin-bottom: 4px; }
   .pillar-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: ${palette.textDark}; }
   .pillar-body { font-size: 13px; font-weight: 300; color: ${palette.textLight}; line-height: 1.7; }
@@ -133,41 +87,21 @@ const css = `
   .story-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 72px; align-items: start; margin-top: 56px; }
   .story-img { width: 100%; display: block; border-radius: 2px; object-fit: cover; filter: sepia(8%) saturate(88%); }
   .story-text { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
-  .story-pull {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(24px, 3vw, 36px);
-    font-weight: 300; color: ${palette.textDark}; line-height: 1.3; font-style: italic;
-  }
+  .story-pull { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 300; color: ${palette.textDark}; line-height: 1.3; font-style: italic; }
   .story-p { font-size: 15px; font-weight: 300; color: ${palette.textMid}; line-height: 1.9; }
   .story-sig { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: ${palette.accent}; margin-top: 8px; }
 
   .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
-  .product-card {
-    background: ${palette.bgCard}; border: 1px solid ${palette.border};
-    border-radius: 20px; padding: 36px 32px;
-    display: flex; flex-direction: column; gap: 14px;
-  }
+  .product-card { background: ${palette.bgCard}; border: 1px solid ${palette.border}; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; }
   .product-tag { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: ${palette.accentSoft}; }
   .product-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: ${palette.textDark}; line-height: 1.3; }
   .product-body { font-size: 13px; font-weight: 300; color: ${palette.textMid}; line-height: 1.75; flex: 1; }
   .product-links { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
 
-  .email-band {
-    background: ${palette.textDark}; padding: 100px 48px;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
+  .email-band { background: ${palette.textDark}; padding: 100px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; }
   .em-eyebrow { font-size: 10px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: ${palette.accentSoft}; margin-bottom: 20px; }
-  .em-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(34px, 5vw, 60px);
-    font-weight: 300; color: ${palette.accentSoft}; line-height: 1.2;
-    max-width: 580px; margin-bottom: 20px;
-  }
-  .em-body {
-    font-size: 15px; font-weight: 300; line-height: 1.85;
-    max-width: 400px; margin-bottom: 44px;
-    color: ${palette.accentSoft}88;
-  }
+  .em-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5vw, 60px); font-weight: 300; color: ${palette.accentSoft}; line-height: 1.2; max-width: 580px; margin-bottom: 20px; }
+  .em-body { font-size: 15px; font-weight: 300; line-height: 1.85; max-width: 400px; margin-bottom: 44px; color: ${palette.accentSoft}88; }
   .em-form-wrap { width: 100%; max-width: 360px; }
 
   #mlb2-38273086.ml-form-embedContainer { width: 100% !important; background: transparent !important; }
@@ -184,11 +118,7 @@ const css = `
   #mlb2-38273086.ml-form-embedContainer .ml-form-successContent p { color: ${palette.accentSoft} !important; font-family: 'Cormorant Garamond', serif !important; font-size: 15px !important; font-style: italic !important; text-align: center !important; }
   #mlb2-38273086.ml-form-embedContainer .ml-form-successContent h4 { display: none !important; }
 
-  .footer {
-    padding: 40px 48px; text-align: center;
-    border-top: 1px solid ${palette.border};
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
-  }
+  .footer { padding: 40px 48px; text-align: center; border-top: 1px solid ${palette.border}; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .footer-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; font-style: italic; color: ${palette.textLight}; letter-spacing: 0.05em; }
   .footer-copy { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: ${palette.border}; }
   .footer-policy { background: none; border: none; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: ${palette.border}; cursor: pointer; font-family: 'Jost', sans-serif; transition: color 0.2s; padding: 0; }
@@ -550,7 +480,9 @@ function Nav() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   return (
     <nav className="nav">
-      <button className="nav-logo" onClick={() => scrollTo("home")}>The Return</button>
+      <button className="nav-logo" onClick={() => scrollTo("home")}>
+        <img src={logoImg} alt="Naomi Etnel" />
+      </button>
       <div className="nav-links">
         <button className="nav-link" onClick={() => scrollTo("framework")}>The Framework</button>
         <button className="nav-link" onClick={() => scrollTo("story")}>My Story</button>
@@ -664,7 +596,7 @@ function StorySection() {
       <div className="s-wrap">
         <p className="s-eyebrow">My Story</p>
         <div className="story-grid">
-          <img src={heroImg} alt="Naomi Etnel" className="story-img" />
+          <img src={naomiImg} alt="Naomi Etnel" className="story-img" />
           <div className="story-text">
             <p className="story-pull">"What I had always been searching for was myself."</p>
             <p className="story-p">For most of my life, I didn't know who I was.</p>
@@ -759,46 +691,20 @@ function PrivacyPolicy({ onClose }: { onClose: () => void }) {
     }}>
       <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 28 }}>
         <button onClick={onClose} className="btn-back" style={{ alignSelf: "flex-start" }}>← Back to site</button>
-
         <div>
           <p className="s-eyebrow" style={{ textAlign: "left" }}>Legal</p>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 300, color: palette.textDark, lineHeight: 1.2, marginTop: 8 }}>Privacy Policy</h1>
           <p style={{ fontSize: 12, color: palette.textLight, marginTop: 8, letterSpacing: "0.04em" }}>Last updated: June 2025</p>
         </div>
-
         {[
-          {
-            heading: "Who we are",
-            body: `This website is operated by Naomi Etnel ("I", "me", "my"). I am the data controller for any personal information collected through this site.\n\nTo contact me regarding your data, please email: hello@naomietnel.com`,
-          },
-          {
-            heading: "What information I collect",
-            body: `I collect your email address when you voluntarily subscribe to the 5-Day Return Reset email series through the form on this site.\n\nI do not collect any other personal data. I do not use analytics tools, advertising trackers, or profiling of any kind.`,
-          },
-          {
-            heading: "Why I collect it — and the legal basis",
-            body: `Your email address is used solely to send you the 5-Day Return Reset series and occasional related updates that you have requested.\n\nThe legal basis for this processing is your consent (Article 6(1)(a) GDPR), given when you submit the subscription form. You may withdraw your consent at any time.`,
-          },
-          {
-            heading: "How long I keep your data",
-            body: `I keep your email address for as long as you remain subscribed. You can unsubscribe at any time using the unsubscribe link included in every email I send you. Once you unsubscribe, your data is deleted from my list.`,
-          },
-          {
-            heading: "Who I share your data with",
-            body: `Your email address is stored and processed by MailerLite (UAB "MailerLite", J. Jasinskio 16B, Vilnius 03163, Lithuania) — my email marketing provider. MailerLite is based in the EU and processes data in compliance with the GDPR under a Data Processing Agreement.\n\nI do not sell, rent, or share your personal data with any other third parties.`,
-          },
-          {
-            heading: "Your rights under the GDPR",
-            body: `You have the right to:\n\n· Access the personal data I hold about you\n· Rectify any inaccurate data\n· Erase your data ("right to be forgotten")\n· Restrict or object to processing\n· Data portability — receive your data in a machine-readable format\n· Withdraw your consent at any time\n\nTo exercise any of these rights, please contact me at hello@naomietnel.com. I will respond within 30 days.`,
-          },
-          {
-            heading: "Right to lodge a complaint",
-            body: `If you believe I have not handled your personal data correctly, you have the right to lodge a complaint with your national data protection authority. In the Netherlands this is the Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl). In the UK it is the Information Commissioner's Office (ico.org.uk).`,
-          },
-          {
-            heading: "Changes to this policy",
-            body: `I may update this policy from time to time. The "last updated" date at the top of this page reflects the most recent changes. Continued use of this site after any changes constitutes your acceptance of the updated policy.`,
-          },
+          { heading: "Who we are", body: `This website is operated by Naomi Etnel ("I", "me", "my"). I am the data controller for any personal information collected through this site.\n\nTo contact me regarding your data, please email: hello@naomietnel.com` },
+          { heading: "What information I collect", body: `I collect your email address when you voluntarily subscribe to the 5-Day Return Reset email series through the form on this site.\n\nI do not collect any other personal data. I do not use analytics tools, advertising trackers, or profiling of any kind.` },
+          { heading: "Why I collect it — and the legal basis", body: `Your email address is used solely to send you the 5-Day Return Reset series and occasional related updates that you have requested.\n\nThe legal basis for this processing is your consent (Article 6(1)(a) GDPR), given when you submit the subscription form. You may withdraw your consent at any time.` },
+          { heading: "How long I keep your data", body: `I keep your email address for as long as you remain subscribed. You can unsubscribe at any time using the unsubscribe link included in every email I send you. Once you unsubscribe, your data is deleted from my list.` },
+          { heading: "Who I share your data with", body: `Your email address is stored and processed by MailerLite (UAB "MailerLite", J. Jasinskio 16B, Vilnius 03163, Lithuania) — my email marketing provider. MailerLite is based in the EU and processes data in compliance with the GDPR under a Data Processing Agreement.\n\nI do not sell, rent, or share your personal data with any other third parties.` },
+          { heading: "Your rights under the GDPR", body: `You have the right to:\n\n· Access the personal data I hold about you\n· Rectify any inaccurate data\n· Erase your data ("right to be forgotten")\n· Restrict or object to processing\n· Data portability — receive your data in a machine-readable format\n· Withdraw your consent at any time\n\nTo exercise any of these rights, please contact me at hello@naomietnel.com. I will respond within 30 days.` },
+          { heading: "Right to lodge a complaint", body: `If you believe I have not handled your personal data correctly, you have the right to lodge a complaint with your national data protection authority. In the Netherlands this is the Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl). In the UK it is the Information Commissioner's Office (ico.org.uk).` },
+          { heading: "Changes to this policy", body: `I may update this policy from time to time. The "last updated" date at the top of this page reflects the most recent changes. Continued use of this site after any changes constitutes your acceptance of the updated policy.` },
         ].map(({ heading, body }) => (
           <div key={heading} style={{ borderTop: `1px solid ${palette.border}`, paddingTop: 28 }}>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 400, color: palette.textDark, marginBottom: 12 }}>{heading}</p>
@@ -807,7 +713,6 @@ function PrivacyPolicy({ onClose }: { onClose: () => void }) {
             ))}
           </div>
         ))}
-
         <div style={{ borderTop: `1px solid ${palette.border}`, paddingTop: 32, marginTop: 8 }}>
           <button onClick={onClose} className="btn-ghost">← Back to site</button>
         </div>
