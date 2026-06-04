@@ -34,7 +34,7 @@ const css = `
     border-bottom: 1px solid ${palette.border}55;
   }
   .nav-logo { cursor: pointer; background: none; border: none; padding: 0; line-height: 0; }
-  .nav-logo img { height: 56px; mix-blend-mode: multiply; display: block; }
+  .nav-logo img { height: 72px; mix-blend-mode: multiply; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-link {
     font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
@@ -625,7 +625,7 @@ function ProductsSection() {
           <div className="product-card">
             <p className="product-tag">Journal</p>
             <p className="product-title">When Everything Feels Like Too Much</p>
-            <p className="product-body">A low-pressure journal designed to come back to whenever you need it — no rules, no routine required. Just a quiet place to land.</p>
+            <p className="product-body">A low-pressure coloring journal designed to come back to whenever you need it — no rules, no routine required. Just a quiet place to land.</p>
             <div className="product-links">
               <a href="https://www.amazon.com/dp/B0GKP611Q9" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
                 <button className="btn-primary" style={{ width: "100%" }}>Get it on Amazon</button>
