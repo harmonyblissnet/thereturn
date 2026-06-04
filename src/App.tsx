@@ -34,7 +34,7 @@ const css = `
     border-bottom: 1px solid ${palette.border}55;
   }
   .nav-logo { cursor: pointer; background: none; border: none; padding: 0; line-height: 0; }
-  .nav-logo img { height: 36px; mix-blend-mode: multiply; display: block; }
+  .nav-logo img { height: 56px; mix-blend-mode: multiply; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-link {
     font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
