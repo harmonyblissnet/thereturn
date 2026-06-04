@@ -34,7 +34,7 @@ const css = `
     border-bottom: 1px solid ${palette.border}55;
   }
   .nav-logo { cursor: pointer; background: none; border: none; padding: 0; line-height: 0; }
-  .nav-logo img { .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; font-style: italic; color: #2A1C10; letter-spacing: 0.06em; cursor: pointer; background: none; border: none; padding: 0; }
+  .nav-logo img { .nav-logo { cursor: pointer; background: none; border: none; padding: 0; line-height: 0; } .nav-logo img { height: 90px; width: auto; mix-blend-mode: multiply; display: block; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-link {
     font-size: 10px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
