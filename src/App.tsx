@@ -243,9 +243,24 @@ const css = `
   .action-card:hover { border-color: ${palette.accentLight}; background: ${palette.bgCard}; box-shadow: 0 2px 12px ${palette.accentGlow}; }
   .action-emoji { font-size: 18px; }
 
+  .nav-burger {
+    display: none; background: none; border: none; cursor: pointer;
+    flex-direction: column; gap: 5px; padding: 4px;
+  }
+  .nav-burger span { display: block; width: 22px; height: 1px; background: ${palette.textMid}; transition: all 0.2s; }
+  .nav-mobile {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99;
+    background: ${palette.bg}F8; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 32px; animation: fadeIn 0.2s ease;
+  }
+  .nav-mobile .nav-link { font-size: 13px; letter-spacing: 0.2em; }
+  .nav-mobile .nav-cta { font-size: 12px; padding: 12px 32px; }
+
   @media (max-width: 768px) {
     .nav { padding: 16px 20px; }
     .nav-links { display: none; }
+    .nav-burger { display: flex; }
     .s-wrap { padding: 72px 24px; }
     .story-grid { grid-template-columns: 1fr; gap: 40px; }
     .products-grid { grid-template-columns: 1fr; }
@@ -547,19 +562,38 @@ function QuietMinuteTool() {
 }
 
 function Nav() {
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const [open, setOpen] = useState(false);
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
+  };
   return (
-    <nav className="nav">
-      <button className="nav-logo" onClick={() => scrollTo("home")}>
-        <img src={logoImg} alt="Naomi Etnel" />
-      </button>
-      <div className="nav-links">
-        <button className="nav-link" onClick={() => scrollTo("framework")}>The Framework</button>
-        <button className="nav-link" onClick={() => scrollTo("story")}>My Story</button>
-        <button className="nav-link" onClick={() => scrollTo("products")}>Products</button>
-        <button className="nav-cta" onClick={() => scrollTo("begin")}>Begin</button>
-      </div>
-    </nav>
+    <>
+      <nav className="nav">
+        <button className="nav-logo" onClick={() => scrollTo("home")}>
+          <img src={logoImg} alt="Naomi Etnel" />
+        </button>
+        <div className="nav-links">
+          <button className="nav-link" onClick={() => scrollTo("story")}>My Story</button>
+          <button className="nav-link" onClick={() => scrollTo("framework")}>The Return</button>
+          <button className="nav-link" onClick={() => scrollTo("products")}>Products</button>
+          <button className="nav-link" onClick={() => scrollTo("try")}>The Quiet Minute</button>
+          <button className="nav-cta" onClick={() => scrollTo("begin")}>Begin</button>
+        </div>
+        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
+      </nav>
+      {open && (
+        <div className="nav-mobile">
+          <button className="nav-link" onClick={() => scrollTo("story")}>My Story</button>
+          <button className="nav-link" onClick={() => scrollTo("framework")}>The Return</button>
+          <button className="nav-link" onClick={() => scrollTo("products")}>Products</button>
+          <button className="nav-link" onClick={() => scrollTo("try")}>The Quiet Minute</button>
+          <button className="nav-cta" onClick={() => scrollTo("begin")}>Begin</button>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -569,16 +603,15 @@ function HeroSection() {
     <section id="home" className="hero">
       <p className="hero-eyebrow">A practice of coming home</p>
       <h1 className="hero-title">
-        You've been there<br />for everyone.<br />
-        It's time to be there<br />
-        <em>for yourself.</em>
+        You've spent years trying to fit<br />in a world that wasn't built for you.<br />
+        It's time to come home<br />
+        <em>to yourself.</em>
       </h1>
       <div className="hero-divider" />
       <p className="hero-sub">
-        The Return is a daily practice of coming back to yourself —
-        not in the big moments, but in the quiet ones.
-        The morning coffee. The sunlight on your face.
-        The breath you forgot to take.
+        For women who always felt out of place.
+        The Return is the practice of coming home to yourself —
+        one quiet moment at a time.
       </p>
       <div className="hero-cta-group">
         <button className="btn-primary" onClick={() => scrollTo("begin")}>
@@ -586,7 +619,7 @@ function HeroSection() {
         </button>
         <p className="hero-note">Five days · Five ordinary moments · Completely yours</p>
       </div>
-      <button className="hero-scroll" onClick={() => scrollTo("try")}>
+      <button className="hero-scroll" onClick={() => scrollTo("story")}>
         <span className="scroll-line" />
         Begin
       </button>
@@ -599,7 +632,7 @@ function QuietMinuteSection() {
     <section id="try" className="qm-band">
       <div className="qm-inner">
         <div style={{ textAlign: "center" }}>
-          <p className="s-eyebrow">Try it right now</p>
+          <p className="s-eyebrow">The Quiet Minute</p>
           <h2 className="s-title">One quiet minute.<br />That's all this is.</h2>
           <p className="qm-sub">Choose where you are right now and let yourself be led back — just for a moment. No sign-up, no commitment.</p>
         </div>
@@ -637,6 +670,8 @@ function FrameworkSection() {
           Over time, the drifts get shorter. The returns get softer.
           You spend less time in survival mode
           and more time actually <em>living</em> your life.
+          <br /><br />
+          For women who have spent years away from themselves — this is the way back.
         </p>
         <div className="pillars">
           <div className="pillar">
@@ -670,13 +705,15 @@ function StorySection() {
           <div className="story-text">
             <p className="story-pull">"What I had always been searching for was myself."</p>
             <p className="story-p">For most of my life, I didn't know who I was.</p>
-            <p className="story-p">I'm a highly sensitive, multipassionate creative — and for years I thought that was the problem. I couldn't settle, couldn't decide, couldn't figure out what I wanted. I judged myself endlessly for it.</p>
+            <p className="story-p">I'm a highly sensitive, multipassionate creative. For years, I thought that was the problem. I couldn't settle, couldn't decide, couldn't figure out what I wanted. I judged myself endlessly for it.</p>
             <p className="story-p">I always knew there was more to me. More to life. But I approached the world differently, never quite fit anywhere, and spent years searching for a place to belong — without realizing I was looking in the wrong direction.</p>
             <p className="story-p">When I became a mother, I went even deeper into survival mode. Running on empty. Showing up for everyone except myself. I didn't even know that's what it was called.</p>
             <p className="story-p">Then, a few years ago, something shifted. I started practicing The Return — those small, deliberate moments of coming back. The morning coffee. The warmth of water in the shower. My children's faces.</p>
             <p className="story-p">Slowly, I started waking up. I started knowing myself. Loving myself.</p>
             <p className="story-p">And I finally understood: what I'd been searching for all along was myself.</p>
-            <p className="story-sig">— Naomi Etnel, founder of The Return</p>
+            <p className="story-p">And now I'm here for the women who recognize this feeling. The ones who always felt like they were too much, or not enough, or simply somewhere in between. The ones who spent years searching for a place to belong — without realizing the place they were looking for was themselves.</p>
+            <p className="story-p">This is where we come home.</p>
+            <p className="story-sig">— Naomi</p>
           </div>
         </div>
       </div>
@@ -708,7 +745,7 @@ function ProductsSection() {
           <div className="product-card">
             <p className="product-tag">Book</p>
             <p className="product-title">I Was There, But Not Really</p>
-            <p className="product-body">For Overwhelmed Mothers Who Want to Come Home to Themselves — a gentle guide back to yourself, written from lived experience.</p>
+            <p className="product-body">Written for mothers — but recognized by every woman who has ever felt lost inside her own life.</p>
             <div className="product-links">
               <a href="https://www.amazon.com/dp/B0GWX2CQ8G" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
                 <button className="btn-primary" style={{ width: "100%" }}>Get it on Amazon</button>
@@ -730,8 +767,8 @@ function EmailSection() {
       <p className="em-eyebrow">Begin</p>
       <h2 className="em-title">Five days.<br />Five ordinary moments.<br />All yours.</h2>
       <p className="em-body">
-        The 5-Day Return Reset — a free email series to help you come back
-        to yourself, one quiet moment at a time. Two minutes a day. No pressure, no programs.
+        The 5-Day Return Reset — a free email series for women who have lost themselves along the way.
+        Come back to yourself, one quiet moment at a time. Two minutes a day. No pressure, no programs.
       </p>
       <div className="em-form-wrap">
         <MailerLiteForm />
@@ -745,7 +782,7 @@ function SiteFooter({ onPrivacy }: { onPrivacy: () => void }) {
     <footer className="footer">
       <p className="footer-wordmark">The Return · Naomi Etnel</p>
       <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-        <p className="footer-copy">© 2026 · All rights reserved</p>
+        <p className="footer-copy">© 2025 · All rights reserved</p>
         <button onClick={onPrivacy} className="footer-policy">Privacy Policy</button>
       </div>
     </footer>
@@ -765,7 +802,7 @@ function PrivacyPolicy({ onClose }: { onClose: () => void }) {
         <div>
           <p className="s-eyebrow" style={{ textAlign: "left" }}>Legal</p>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 300, color: palette.textDark, lineHeight: 1.2, marginTop: 8 }}>Privacy Policy</h1>
-          <p style={{ fontSize: 12, color: palette.textLight, marginTop: 8, letterSpacing: "0.04em" }}>Last updated: June 2026</p>
+          <p style={{ fontSize: 12, color: palette.textLight, marginTop: 8, letterSpacing: "0.04em" }}>Last updated: June 2025</p>
         </div>
 
         {[
@@ -826,11 +863,11 @@ export default function App() {
       <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <Nav />
         <HeroSection />
-        <QuietMinuteSection />
-        <FrameworkSection />
         <StorySection />
+        <FrameworkSection />
         <ProductsSection />
         <EmailSection />
+        <QuietMinuteSection />
         <SiteFooter onPrivacy={() => setShowPrivacy(true)} />
       </div>
       {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
