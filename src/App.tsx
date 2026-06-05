@@ -603,9 +603,9 @@ function HeroSection() {
     <section id="home" className="hero">
       <p className="hero-eyebrow">A practice of coming home</p>
       <h1 className="hero-title">
-        You've spent years trying to fit<br />in a world that wasn't built for you.<br />
-        It's time to come home<br />
-        <em>to yourself.</em>
+        You've spent years trying to fit in a world that wasn't built for you.
+        It's time to come home
+        <em style={{ display: "block" }}>to yourself.</em>
       </h1>
       <div className="hero-divider" />
       <p className="hero-sub">
@@ -646,7 +646,7 @@ function FrameworkSection() {
   return (
     <section id="framework">
       <div className="s-wrap">
-        <p className="s-eyebrow">The Framework</p>
+        <p className="s-eyebrow">The Return</p>
         <h2 className="s-title">What is The Return?</h2>
         <div className="s-divider" />
         <p className="fw-body">
