@@ -608,7 +608,7 @@ function HeroSection() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   return (
     <section id="home" className="hero">
-      <p className="hero-eyebrow">{t("A practice of coming home", "Een praktijk van thuiskomen")}</p>
+      <p className="hero-eyebrow">{t("A practice of coming home", "De oefening van thuiskomen")}</p>
       {lang === "en" ? (
         <h1 className="hero-title">
           You've spent years trying to fit in a world that wasn't built for you.
@@ -749,7 +749,7 @@ function StorySection() {
         <div className="story-grid">
           <img src={naomiImg} alt="Naomi Etnel" className="story-img" />
           <div className="story-text">
-            <p className="story-pull">{t('"What I had always been searching for was myself."', '"Wat ik altijd had gezocht, was mezelf."')}</p>
+            <p className="story-pull">{t('"What I had always been searching for was myself."', '"Waar ik altijd naar zocht, bleek mezelf te zijn."')}</p>
             {lang === "en" ? (<>
               <p className="story-p">For most of my life, I didn't know who I was.</p>
               <p className="story-p">I'm a highly sensitive, multipassionate creative. For years, I thought that was the problem. I couldn't settle, couldn't decide, couldn't figure out what I wanted. I judged myself endlessly for it.</p>
@@ -764,7 +764,7 @@ function StorySection() {
               <p className="story-p">Het grootste deel van mijn leven wist ik niet wie ik was.</p>
               <p className="story-p">Ik ben een hoogsensitieve, multigepassioneerde creatieveling. Jarenlang dacht ik dat dat het probleem was. Ik kon me niet settelen, niet beslissen, niet bedenken wat ik wilde. Ik oordeelde mezelf er eindeloos voor.</p>
               <p className="story-p">Ik wist altijd dat er meer in mij zat. Meer in het leven. Maar ik benaderde de wereld anders, paste nergens echt, en bracht jaren door met zoeken naar een plek om bij te horen — zonder te beseffen dat ik in de verkeerde richting zocht.</p>
-              <p className="story-p">Toen ik moeder werd, ging ik nog dieper de overlevingsmodus in. Op leeg rijden. Er zijn voor iedereen behalve mezelf. Ik wist niet eens dat dat zo heette.</p>
+              <p className="story-p">Toen ik moeder werd, ging ik nog dieper de overlevingsmodus in. Op reserves draaien. Er zijn voor iedereen behalve mezelf. Ik wist niet eens dat dat zo heette.</p>
               <p className="story-p">Toen, een paar jaar geleden, veranderde er iets. Ik begon The Return te beoefenen — die kleine, bewuste momenten van terugkomen. De ochtendkoffie. De warmte van water in de douche. De gezichten van mijn kinderen.</p>
               <p className="story-p">Langzaam begon ik wakker te worden. Ik begon mezelf te kennen. Mezelf lief te hebben.</p>
               <p className="story-p">En ik begreep eindelijk: wat ik de hele tijd had gezocht, was mezelf.</p>
