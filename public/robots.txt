@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://naomietnel.com/sitemap.xml
+Sitemap: https://www.naomietnel.com/sitemap.xml
