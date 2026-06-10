@@ -629,7 +629,7 @@ function HeroSection() {
       <p className="hero-sub">
         {t(
           "For women who always felt out of place. The Return is the practice of coming home to yourself — one quiet moment at a time.",
-          "Voor vrouwen die zich altijd niet op hun plek voelden. The Return is de praktijk van thuiskomen bij jezelf — één stil moment tegelijk."
+          "Voor vrouwen die zich altijd niet op hun plek voelden. The Return is de oefening van thuiskomen bij jezelf — één stil moment tegelijk."
         )}
       </p>
       <div className="hero-cta-group">
@@ -704,7 +704,7 @@ function FrameworkSection() {
             Het gewicht van andermans behoeften.
             En ergens daarin verdwijn je.
             <br /><br />
-            The Return is de praktijk van opmerken wanneer je bent afgedwaald —
+            The Return is de oefening van opmerken wanneer je bent afgedwaald —
             en terugkomen. Zonder drama, zonder oordeel.
             Gewoon een zacht: <em>oh, ik ben er weer.</em>
             <br /><br />
@@ -852,7 +852,7 @@ function SiteFooter({ onPrivacy }: { onPrivacy: () => void }) {
     <footer className="footer">
       <p className="footer-wordmark">The Return · Naomi Etnel</p>
       <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-        <p className="footer-copy">{t("© 2025 · All rights reserved", "© 2025 · Alle rechten voorbehouden")}</p>
+        <p className="footer-copy">{t("© 2026 · All rights reserved", "© 2026 · Alle rechten voorbehouden")}</p>
         <a href="mailto:hello@naomietnel.com" className="footer-policy">{t("Contact", "Contact")}</a>
         <button onClick={onPrivacy} className="footer-policy">{t("Privacy Policy", "Privacybeleid")}</button>
       </div>
