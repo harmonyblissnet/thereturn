@@ -856,6 +856,7 @@ function SiteFooter({ onPrivacy }: { onPrivacy: () => void }) {
         <a href="mailto:hello@naomietnel.com" className="footer-policy">{t("Contact", "Contact")}</a>
         <button onClick={onPrivacy} className="footer-policy">{t("Privacy Policy", "Privacybeleid")}</button>
       </div>
+      <p className="footer-copy">KVK 42083997</p>
     </footer>
   );
 }
