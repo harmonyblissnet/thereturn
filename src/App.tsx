@@ -626,6 +626,9 @@ function HeroSection() {
         </h1>
       )}
       <div className="hero-divider" />
+      <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 300, color: palette.textDark, marginBottom: 28, letterSpacing: "0.01em" }}>
+        {t("You were always her. You just forgot.", "Je was haar altijd al. Je was het alleen vergeten.")}
+      </p>
       <p className="hero-sub">
         {t(
           "For women who always felt out of place. The Return is the practice of coming home to yourself — one quiet moment at a time.",
@@ -763,6 +766,7 @@ function StorySection() {
               <p className="story-p">And I finally understood: what I'd been searching for all along was myself.</p>
               <p className="story-p">And now I'm here for the women who recognize this feeling. The ones who always felt like they were too much, or not enough, or simply somewhere in between. The ones who spent years searching for a place to belong — without realizing the place they were looking for was themselves.</p>
               <p className="story-p">This is where we come home.</p>
+              <p className="story-pull" style={{ fontSize: "clamp(18px, 2vw, 26px)", marginTop: 8 }}>"You were always her. You just forgot."</p>
             </>) : (<>
               <p className="story-p">Het grootste deel van mijn leven wist ik niet wie ik was.</p>
               <p className="story-p">Ik ben een hoogsensitieve, multigepassioneerde creatieveling. Jarenlang dacht ik dat dat het probleem was. Ik kon me niet settelen, niet beslissen, niet bedenken wat ik wilde. Ik oordeelde mezelf er eindeloos voor.</p>
@@ -773,6 +777,7 @@ function StorySection() {
               <p className="story-p">En ik begreep eindelijk: wat ik de hele tijd had gezocht, was mezelf.</p>
               <p className="story-p">En nu ben ik hier voor de vrouwen die dit gevoel herkennen. De vrouwen die altijd het gevoel hadden te veel te zijn, of niet genoeg, of gewoon ergens daartussenin. De vrouwen die jaren zochten naar een plek om bij te horen — zonder te beseffen dat de plek die ze zochten, zijzelf waren.</p>
               <p className="story-p">Hier komen we thuis.</p>
+              <p className="story-pull" style={{ fontSize: "clamp(18px, 2vw, 26px)", marginTop: 8 }}>"Je was haar altijd al. Je was het alleen vergeten."</p>
             </>)}
             <p className="story-sig">— Naomi</p>
           </div>
@@ -850,6 +855,9 @@ function SiteFooter({ onPrivacy }: { onPrivacy: () => void }) {
   const { t } = useLang();
   return (
     <footer className="footer">
+      <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 15, fontWeight: 300, color: palette.textLight, letterSpacing: "0.02em", marginBottom: 4 }}>
+        {t("You were always her. You just forgot.", "Je was haar altijd al. Je was het alleen vergeten.")}
+      </p>
       <p className="footer-wordmark">The Return · Naomi Etnel</p>
       <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
         <p className="footer-copy">{t("© 2026 · All rights reserved", "© 2026 · Alle rechten voorbehouden")}</p>
