@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Return Coloring Collection — Your Collection Has Arrived</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO USE THIS PAGE
+  1. Print section: the full US Letter and A4 printable PDFs (all 10 pages).
+     Digital section: the 10 transparent PNGs, one per page.
+     Every button links straight to Google Drive. To swap a file, replace
+     its href using this format:
+     https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
+  2. naomietnel.com and thequietminute.app are already linked.
+  3. This file lives in /public, so it is served at /coloring-collection.html
+     (e.g. https://www.naomietnel.com/coloring-collection.html). Share that
+     link with buyers of the collection listing.
+
+  IMPORTANT: each Google Drive file must be shared as "Anyone with the link"
+  or buyers will hit a sign-in wall.
+-->
+
+<style>
+  :root{
+    --ink:#3A342E;
+    --rust:#B0654A;
+    --rust-soft:#C98A6E;
+    --sand:#D8CBB6;
+    --sand-line:#E4DAC8;
+    --cream:#FAF7F2;
+    --cream-deep:#F3EDE3;
+    --muted:#7A7268;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ height:100%; }
+
+  body{
+    font-family:'Lora', serif;
+    min-height:100%;
+    background: radial-gradient(circle at 50% 0%, var(--cream) 0%, var(--cream-deep) 70%);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 24px;
+    line-height:1.6;
+  }
+
+  .page{
+    width:100%;
+    max-width:660px;
+    text-align:center;
+  }
+
+  .eyebrow{
+    color:var(--rust);
+    font-size:13px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-size:clamp(30px, 5.5vw, 40px);
+    font-weight:500;
+    letter-spacing:0.5px;
+    margin-bottom:14px;
+  }
+
+  .lede{
+    font-style:italic;
+    font-weight:400;
+    color:var(--muted);
+    font-size:18px;
+    max-width:480px;
+    margin:0 auto 44px;
+  }
+
+  .rule{
+    width:64px;
+    height:1px;
+    background:var(--rust);
+    margin:0 auto 44px;
+  }
+
+  .section{
+    background:#fff;
+    border:1px solid var(--sand-line);
+    border-radius:6px;
+    padding:28px 28px 30px;
+    box-shadow:0 30px 60px -30px rgba(58,52,46,0.25);
+    text-align:left;
+    margin-bottom:16px;
+  }
+
+  .section-label{
+    font-size:11px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:6px;
+  }
+
+  .section-title{
+    font-size:19px;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+
+  .section-note{
+    font-size:13px;
+    color:var(--muted);
+    font-style:italic;
+    margin-bottom:20px;
+  }
+
+  .formats{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .fmt-btn{
+    flex:1 1 200px;
+    display:block;
+    background:var(--ink);
+    color:var(--cream);
+    text-decoration:none;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:0.3px;
+    padding:12px 14px;
+    border-radius:3px;
+    transition:background 0.25s ease, transform 0.25s ease;
+  }
+
+  .fmt-btn:hover{
+    background:var(--rust);
+    transform:translateY(-1px);
+  }
+
+  .fmt-btn:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+  }
+
+  .fmt-btn .fmt-kicker{
+    display:block;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--rust-soft);
+    margin-bottom:4px;
+  }
+
+  .continue{
+    margin-top:40px;
+    margin-bottom:8px;
+  }
+
+  .continue .eyebrow{
+    margin-bottom:8px;
+  }
+
+  .continue .sub{
+    font-style:italic;
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:32px;
+  }
+
+  .links{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .link-card{
+    flex:1 1 220px;
+    max-width:260px;
+    text-decoration:none;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--sand-line);
+    border-radius:6px;
+    padding:26px 22px;
+    text-align:left;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .link-card:hover{
+    border-color:var(--rust-soft);
+    transform:translateY(-2px);
+  }
+
+  .link-card:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+  }
+
+  .link-card .kicker{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:8px;
+  }
+
+  .link-card .name{
+    font-size:19px;
+    margin-bottom:6px;
+  }
+
+  .link-card .desc{
+    font-size:13.5px;
+    color:var(--muted);
+    font-style:italic;
+    line-height:1.5;
+  }
+
+  .arrow{
+    color:var(--rust);
+  }
+
+  footer{
+    margin-top:64px;
+  }
+
+  footer .quote{
+    font-style:italic;
+    color:var(--rust);
+    font-size:16px;
+    margin-bottom:6px;
+  }
+
+  footer .site{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fmt-btn, .link-card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="eyebrow">The Return Collection</div>
+    <h1>Your coloring collection has arrived.</h1>
+    <p class="lede">Ten coloring pages to come back to yourself. Print the whole book, or color each page digitally — there's no wrong way to return to yourself.</p>
+
+    <div class="rule"></div>
+
+    <div class="section">
+      <div class="section-label">Print · The Whole Collection</div>
+      <div class="section-title">Ready-to-print PDF</div>
+      <div class="section-note">All 10 pages in one file. Choose your paper size.</div>
+      <div class="formats">
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1ypfBi5Fzw_Sor5WdoHY6XsaEaOPgivUo"><span class="fmt-kicker">US Letter</span>Download PDF</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1juozBA5ZIW1r8AqOJmxfpI7DsLthJaFT"><span class="fmt-kicker">A4</span>Download PDF</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Digital · Transparent PNG</div>
+      <div class="section-title">The 10 coloring pages</div>
+      <div class="section-note">Line art with no background — for coloring in GoodNotes or Procreate.</div>
+      <div class="formats">
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1_J37H9PZCju3cuD7I0gTfVx6VBuzzIeR"><span class="fmt-kicker">01</span>Come Back to Yourself</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=12FxveQlsfeQt8oogaJc6QQqNvaCneoH1"><span class="fmt-kicker">02</span>Good at a Life That Doesn't Feel</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1McLc2mcVan6PxieJkZB393hylbGQpwEr"><span class="fmt-kicker">03</span>All Figured Out</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1f9PPTkyoNxNtAQ5HF75lk4ToapDNDdf8"><span class="fmt-kicker">04</span>Waiting to Be Noticed</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1e0EQUv7NLhjdskSdpqHwsPZVuyukTtSk"><span class="fmt-kicker">05</span>Change Your Mind</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=17BCfPgf_RTZVrSKHVrKTOheJym6EypzL"><span class="fmt-kicker">06</span>What Do I Want</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1GECB-NvuEymHthJRvE1wpqUCF4wKVFV0"><span class="fmt-kicker">07</span>Boundaries Are Clarity</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=1RXNXty1D7IzssitB5YYmiwCCiSaZkzX1"><span class="fmt-kicker">08</span>Joy and Play</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=15Sft9k0m10zrfXQNSJABUFeTIDjCDdpl"><span class="fmt-kicker">09</span>Someone New</a>
+        <a class="fmt-btn" href="https://drive.google.com/uc?export=download&amp;id=13356dhLaPWAxrR4NjlfW9Wlef98NpILL"><span class="fmt-kicker">10</span>Return to Yourself</a>
+      </div>
+    </div>
+
+    <div class="continue">
+      <div class="eyebrow">Keep Returning</div>
+      <p class="sub">A few more doorways back to yourself, whenever you need them.</p>
+    </div>
+
+    <div class="links">
+      <a class="link-card" href="https://naomietnel.com" target="_blank" rel="noopener">
+        <div class="kicker">Website</div>
+        <div class="name">naomietnel.com <span class="arrow">↗</span></div>
+        <div class="desc">More writing, tools, and ways to come back to yourself.</div>
+      </a>
+      <a class="link-card" href="https://thequietminute.app" target="_blank" rel="noopener">
+        <div class="kicker">Free App</div>
+        <div class="name">The Quiet Minute <span class="arrow">↗</span></div>
+        <div class="desc">A one-minute practice of coming home, whenever the day gets loud.</div>
+      </a>
+    </div>
+
+    <footer>
+      <div class="quote">Keep returning. Keep remembering.</div>
+      <div class="site">naomietnel.com</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
