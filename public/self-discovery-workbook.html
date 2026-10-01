@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Self-Discovery Workbook — Your Workbook Has Arrived</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO USE THIS PAGE
+  1. The two download buttons point straight to the workbook on Google Drive
+     (US Letter PDF and A4 PDF). To swap a file, replace its href using this
+     direct-download format:
+     https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
+  2. naomietnel.com and thequietminute.app are already linked.
+  3. This file lives in /public, so it is served at /self-discovery-workbook.html
+     (e.g. https://www.naomietnel.com/self-discovery-workbook.html). Share that
+     link with buyers.
+
+  IMPORTANT: each Google Drive file must be shared as "Anyone with the link"
+  or buyers will hit a sign-in wall.
+-->
+
+<style>
+  :root{
+    --ink:#3A342E;
+    --rust:#B0654A;
+    --rust-soft:#C98A6E;
+    --sand:#D8CBB6;
+    --sand-line:#E4DAC8;
+    --cream:#FAF7F2;
+    --cream-deep:#F3EDE3;
+    --muted:#7A7268;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ height:100%; }
+
+  body{
+    font-family:'Lora', serif;
+    min-height:100%;
+    background: radial-gradient(circle at 50% 0%, var(--cream) 0%, var(--cream-deep) 70%);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 24px;
+    line-height:1.6;
+  }
+
+  .page{
+    width:100%;
+    max-width:640px;
+    text-align:center;
+  }
+
+  .eyebrow{
+    color:var(--rust);
+    font-size:13px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-size:clamp(30px, 5.5vw, 40px);
+    font-weight:500;
+    letter-spacing:0.5px;
+    margin-bottom:14px;
+  }
+
+  .lede{
+    font-style:italic;
+    font-weight:400;
+    color:var(--muted);
+    font-size:18px;
+    max-width:470px;
+    margin:0 auto 44px;
+  }
+
+  .rule{
+    width:64px;
+    height:1px;
+    background:var(--rust);
+    margin:0 auto 44px;
+  }
+
+  .section-heading{
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:20px;
+  }
+
+  .downloads{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    margin-bottom:56px;
+  }
+
+  .download-card{
+    background:#fff;
+    border:1px solid var(--sand-line);
+    border-radius:6px;
+    padding:30px 32px;
+    box-shadow:0 30px 60px -30px rgba(58,52,46,0.25);
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .download-card .info{ flex:1 1 240px; }
+
+  .download-card .info .label{
+    font-size:11px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:8px;
+  }
+
+  .download-card .info .filename{
+    font-size:19px;
+    margin-bottom:6px;
+  }
+
+  .download-card .info .desc{
+    font-size:13.5px;
+    color:var(--muted);
+    font-style:italic;
+  }
+
+  .btn{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:15px;
+    letter-spacing:0.5px;
+    padding:14px 26px;
+    border-radius:3px;
+    transition:background 0.25s ease, transform 0.25s ease;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+
+  .btn:hover{ background:var(--rust); transform:translateY(-1px); }
+  .btn:focus-visible{ outline:2px solid var(--rust); outline-offset:3px; }
+
+  .howto{
+    background:#fff;
+    border:1px solid var(--sand-line);
+    border-radius:6px;
+    padding:32px 32px;
+    box-shadow:0 30px 60px -30px rgba(58,52,46,0.25);
+    text-align:left;
+    margin-bottom:40px;
+  }
+
+  .howto .howto-title{
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:16px;
+  }
+
+  .howto p{ font-size:14.5px; color:var(--ink); }
+  .howto p + p{ margin-top:12px; }
+
+  .howto .sub{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-top:20px;
+    margin-bottom:10px;
+  }
+
+  .howto ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+
+  .howto li{
+    font-size:14px;
+    color:var(--ink);
+    padding-left:18px;
+    position:relative;
+    margin-bottom:8px;
+  }
+
+  .howto li::before{
+    content:"·";
+    color:var(--rust);
+    position:absolute;
+    left:4px;
+    font-weight:700;
+  }
+
+  .howto .closing{
+    margin-top:20px;
+    font-style:italic;
+    color:var(--muted);
+  }
+
+  .continue{ margin-bottom:8px; }
+  .continue .eyebrow{ margin-bottom:8px; }
+  .continue .sub{
+    font-style:italic;
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:32px;
+  }
+
+  .links{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+
+  .link-card{
+    flex:1 1 220px;
+    max-width:260px;
+    text-decoration:none;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--sand-line);
+    border-radius:6px;
+    padding:26px 22px;
+    text-align:left;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .link-card:hover{ border-color:var(--rust-soft); transform:translateY(-2px); }
+  .link-card:focus-visible{ outline:2px solid var(--rust); outline-offset:3px; }
+
+  .link-card .kicker{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:8px;
+  }
+
+  .link-card .name{ font-size:19px; margin-bottom:6px; }
+  .link-card .desc{ font-size:13.5px; color:var(--muted); font-style:italic; line-height:1.5; }
+
+  .arrow{ color:var(--rust); }
+
+  .disclaimer{
+    margin-top:48px;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.6;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .disclaimer .d-title{
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--rust-soft);
+    display:block;
+    margin-bottom:6px;
+  }
+
+  footer{ margin-top:48px; }
+  footer .quote{ font-style:italic; color:var(--rust); font-size:16px; margin-bottom:6px; }
+  footer .site{ font-size:12.5px; color:var(--muted); }
+
+  @media (prefers-reduced-motion: reduce){
+    .btn, .link-card{ transition:none; }
+  }
+
+  @media (max-width: 480px){
+    .download-card{ flex-direction:column; align-items:flex-start; }
+    .download-card .btn{ width:100%; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="eyebrow">The Return</div>
+    <h1>Your workbook has arrived.</h1>
+    <p class="lede">Thank you for bringing this into your life. Choose the size that fits your paper, or open it on your tablet — there's nothing to get right here.</p>
+
+    <div class="rule"></div>
+
+    <div class="section-heading">Your Download</div>
+    <div class="downloads">
+      <div class="download-card">
+        <div class="info">
+          <div class="label">Print · US Letter</div>
+          <div class="filename">The Self-Discovery Workbook — US Letter PDF</div>
+          <div class="desc">Sized 8.5 × 11". Works on a tablet too — just open it in your PDF app.</div>
+        </div>
+        <a class="btn" href="https://drive.google.com/uc?export=download&amp;id=1fzkGxxaUF_lyr-vQb4EzmDwyIUkEHLXa">Download PDF</a>
+      </div>
+
+      <div class="download-card">
+        <div class="info">
+          <div class="label">Print · A4</div>
+          <div class="filename">The Self-Discovery Workbook — A4 PDF</div>
+          <div class="desc">Sized 210 × 297mm. Works on a tablet too — just open it in your PDF app.</div>
+        </div>
+        <a class="btn" href="https://drive.google.com/uc?export=download&amp;id=1nTuD576bjiJaE5F7FkKVEuRLkkRz5Z9B">Download PDF</a>
+      </div>
+    </div>
+
+    <div class="howto">
+      <div class="howto-title">How to Use Your Workbook</div>
+      <p>There's no right way to work through these pages.</p>
+      <p>Start at the beginning or open to whatever catches your attention. Write a lot or write one sentence. Skip a question. Come back later. Change your answer.</p>
+      <p>You can print the full workbook or only the pages you want to use.</p>
+      <p>If you prefer to use it digitally, import the PDF into your preferred PDF annotation or note-taking app and write directly on the pages.</p>
+
+      <div class="sub">For printing</div>
+      <ul>
+        <li>Choose the file size that matches your paper (A4 or US Letter).</li>
+        <li>Print at 100% / Actual Size for best results.</li>
+        <li>Standard printer paper works perfectly fine, or use slightly heavier paper if you prefer.</li>
+        <li>Consider test-printing one page before printing the full workbook.</li>
+      </ul>
+
+      <p class="closing">And most importantly: there's nothing to get right here.</p>
+    </div>
+
+    <div class="continue">
+      <div class="eyebrow">Keep Returning</div>
+      <p class="sub">A few more doorways back to yourself, whenever you need them.</p>
+    </div>
+
+    <div class="links">
+      <a class="link-card" href="https://naomietnel.com" target="_blank" rel="noopener">
+        <div class="kicker">Website</div>
+        <div class="name">naomietnel.com <span class="arrow">↗</span></div>
+        <div class="desc">More writing, tools, and ways to come back to yourself.</div>
+      </a>
+      <a class="link-card" href="https://thequietminute.app" target="_blank" rel="noopener">
+        <div class="kicker">Free App</div>
+        <div class="name">The Quiet Minute <span class="arrow">↗</span></div>
+        <div class="desc">A one-minute practice of coming home, whenever the day gets loud.</div>
+      </a>
+    </div>
+
+    <p class="disclaimer">
+      <span class="d-title">Disclaimer</span>
+      This workbook is intended for personal reflection and educational purposes only. It is not a substitute for professional mental health care.
+    </p>
+
+    <footer>
+      <div class="quote">There's nothing to get right here.</div>
+      <div class="site">naomietnel.com</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
